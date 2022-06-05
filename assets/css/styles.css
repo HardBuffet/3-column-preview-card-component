@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 0.938rem;
+  font-size: clamp(0.938rem, 0.9091267606rem + 0.1231924883vw, 1.02rem);
+  font-family: "Lexend Deca", sans-serif;
+  background: #f2f2f2;
+}
+
+h1 {
+  position: fixed;
+  left: -100vh;
+  z-index: -99999;
+}
+
+h2 {
+  color: #f2f2f2;
+  font-size: 2.45rem;
+  font-size: clamp(2.45rem, 2.361971831rem + 0.3755868545vw, 2.7rem);
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: 700;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.75rem;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 330px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.card {
+  display: grid;
+  gap: 20px;
+  padding: 3.125em;
+}
+.card__link {
+  width: max-content;
+  margin-top: 0.625em;
+}
+.card_bright-orange {
+  background: #e38826;
+  color: #e38826;
+}
+.card_dark-cyan {
+  background: #006970;
+  color: #006970;
+}
+.card_darker-cyan {
+  background: #004241;
+  color: #004241;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.link {
+  background: #f2f2f2;
+  color: inherit;
+  border: 2px solid #f2f2f2;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 0.8125em 1.9em;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.link:hover {
+  background: transparent;
+  color: #f2f2f2;
+}
+
+.m-b__img {
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 990px) {
+  .cards {
+    width: initial;
+  }
+
+  .card {
+    width: 330px;
+    gap: 25px;
+  }
+  .card__link {
+    margin-top: 60px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

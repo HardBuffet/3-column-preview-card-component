@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+// - Mobile: 375px
+// - Desktop: 1440px
+
+// ****************************************************************************
+// *                                  0. z-index                                 *
+// ****************************************************************************
+$minusAlpha: -99999;
+
+// ****************************************************************************
+// *                                  1. colors                                  *
+// ****************************************************************************
+$brightOrange: hsl(31, 77%, 52%);
+$darkCyan: hsl(184, 100%, 22%);
+$darkerCyan: hsl(179, 100%, 13%);
+$transparentWhite: hsla(0, 0%, 100%, 0.75);
+$veryLightGray: hsl(0, 0%, 95%);
+
+$paragraphColor: $transparentWhite;
+$backgroundColor: $veryLightGray;
+$headingColor: $veryLightGray;
+
+$linkBg: $veryLightGray;
+$linkBorderColor: $linkBg;
+$linkColorHover: $veryLightGray;
+
+// ****************************************************************************
+// *                                   2. fonts                                  *
+// ****************************************************************************
+$primaryFont: "Lexend Deca", sans-serif;
+$secondFont: "Big Shoulders Display", cursive;
+$fw-400: 400;
+$fw-700: 700;
+
+// ****************************************************************************
+// *                                  3. mixins                                  *
+// ****************************************************************************
+@mixin flex($center: false, $jc: false, $wrap: false, $jcVal: center) {
+  display: flex;
+  @if $center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  @if $jc {
+    justify-content: $jcVal;
+  }
+
+  @if $wrap {
+    flex-wrap: wrap;
+  }
+}
+
+// ****************************************************************************
+// *                                   4. reset                                  *
+// ****************************************************************************
+* {
+  $marPad: 0;
+
+  margin: $marPad;
+  padding: $marPad;
+  box: {
+    sizing: border-box;
+  }
+}
+
+body {
+  font: {
+    size: 0.938rem;
+    size: clamp(
+      0.938rem,
+      0.9091267605633802rem + 0.1231924882629109vw,
+      1.02rem
+    );
+    // size: 0.938rem;
+    family: $primaryFont;
+  }
+  background: $backgroundColor;
+}
+
+// the tag below is only for the screen readers etc.
+h1 {
+  position: fixed;
+  left: -100vh;
+  z-index: $minusAlpha;
+}
+
+h2 {
+  color: $headingColor;
+  font: {
+    size: 2.45rem;
+    size: clamp(2.45rem, 2.3619718309859157rem + 0.3755868544600939vw, 2.7rem);
+    family: $secondFont;
+    weight: $fw-700;
+  }
+}
+
+p {
+  color: $paragraphColor;
+  line: {
+    height: 1.75rem;
+  }
+}
+
+// ****************************************************************************
+// *                                  5. blocks                                  *
+// ****************************************************************************
+.page {
+  @include flex($center: true);
+  min: {
+    height: 100vh;
+  }
+}
+
+.cards {
+  @include flex($jc: true, $wrap: true);
+  width: 330px;
+  overflow: hidden;
+  border: {
+    radius: 8px;
+  }
+}
+
+.card {
+  display: grid;
+  gap: 20px;
+  padding: 3.125em;
+
+  &__link {
+    width: max-content;
+    margin: {
+      top: 0.625em;
+    }
+  }
+
+  &_bright {
+    &-orange {
+      background: $brightOrange;
+      color: $brightOrange;
+    }
+  }
+
+  &_dark {
+    &-cyan {
+      background: $darkCyan;
+      color: $darkCyan;
+    }
+  }
+
+  &_darker {
+    &-cyan {
+      background: $darkerCyan;
+      color: $darkerCyan;
+    }
+  }
+}
+
+.title {
+  text: {
+    transform: uppercase;
+  }
+}
+
+.link {
+  background: $linkBg;
+  color: inherit;
+  border: 2px solid $linkBorderColor {
+    radius: 25px;
+  }
+  display: inline-block;
+  padding: 0.8125em 1.9em;
+  text: {
+    decoration: none;
+  }
+
+  transition: background 0.3s;
+  &:hover {
+    background: transparent;
+    color: $linkColorHover;
+  }
+}
+
+.m {
+  &-b {
+    &__img {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// ****************************************************************************
+// *                                   6. media                                  *
+// ****************************************************************************
+@media screen and (min-width: 990px) {
+  .cards {
+    width: initial;
+  }
+
+  .card {
+    width: 330px;
+    gap: 25px;
+
+    &__link {
+      margin: {
+        top: 60px;
+      }
+    }
+  }
+}
